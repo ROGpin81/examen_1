@@ -43,7 +43,6 @@ app.put('/gasto/:idgasto', async (req,res) =>{
 
     try {
         
-
         const [updated] = await Gasto.update(req.body,{
             where: {idgasto: req.params.idgasto}
         })
@@ -60,8 +59,6 @@ app.put('/gasto/:idgasto', async (req,res) =>{
         res.status(500).json({error: 'Ocurrio un error' + error});
     }
 })
-
-
 
 app.delete('/gasto/:idgasto', async (req, res) => {
     try {

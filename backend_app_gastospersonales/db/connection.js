@@ -1,19 +1,19 @@
-const {Sequelize} = require('sequelize')
+require("dotenv").config();
+const {Sequelize} = require("sequelize");
 
-const sequelize= new Sequelize(
-     'exameniparcial',
-     'root',
-     'admin123',
-    {
-        host:  '127.0.0.1',
-        port: 3306,
-        dialect: 'mysql'
-    }
-)
-
+const sequelize = new Sequelize(
+  process.env.DB_NAME,
+  process.env.DB_USER,
+  process.env.DB_PASSWORD,
+  {
+    host: process.env.DB_HOST,
+    port: Number(process.env.DB_PORT),
+    dialect: process.env.DB_DIALECT,
+  }
+);
 
 sequelize.authenticate()
-    .then(()=> console.log("Conexion se realizo exitosamente"))
-    .catch(err=> console.log("Ocurrio un error con la conexion" + err))
+    .then(()=> console.log('Conexion Exitosa'))
+    .catch((err)=> console.log('Ocurrio un error en la conexion de BD', err));
 
-module.exports= sequelize
+module.exports=sequelize

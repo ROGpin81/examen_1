@@ -78,6 +78,6 @@ app.delete('/gasto/:idgasto', async (req, res) => {
     }
 });
 
-app.listen(5000,()=>{
-    console.log('aplcacion ejecutando en puerto 5000')
+app.listen(5050,()=>{
+    console.log('aplcacion ejecutando en puerto 5050')
 })
